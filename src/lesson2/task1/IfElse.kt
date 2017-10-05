@@ -44,7 +44,15 @@ fun ageDescription(age: Int): String = TODO()
  */
 fun timeForHalfWay(t1: Double, v1: Double,
                    t2: Double, v2: Double,
-                   t3: Double, v3: Double): Double = TODO()
+                   t3: Double, v3: Double): Double {
+    val a = (t1 * v1 + t2 * v2 + t3 * v3) / 2
+    val c = when {
+        a <= t1 * v1 -> a / v1
+        a - t1 * v1 <= t2 * v2 -> (a - t1 * v1) / v2 + t1
+        else -> (a - t1 * v1 - t2 * v2) / v3 + t1 + t2
+    }
+    return c
+}
 
 /**
  * Простая
